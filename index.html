@@ -1,13 +1,110 @@
-<!-- This button reads ref & pid from the current page URL -->
-<a id="lepavs-buy-btn" href="#" style="display:inline-block;background:#6366f1;color:#ffffff;padding:16px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;font-family:Arial,sans-serif;" target="_blank">
-  🛒 Buy Now
-</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Break Free From Masturbation Addiction</title>
+</head>
+
+<body style="margin:0;font-family:Arial, sans-serif;line-height:1.6;">
+
+<!-- HERO SECTION -->
+<section style="text-align:center;padding:70px 20px;background:#f5f8ff;">
+  <h1 style="font-size:36px;margin-bottom:20px;">
+    Break Free From Masturbation Addiction – Reclaim Your Focus, Confidence & Power
+  </h1>
+
+  <p style="font-size:18px;max-width:750px;margin:auto;margin-bottom:30px;">
+    Discover the proven step-by-step system that has helped men regain control, 
+    rebuild discipline, and boost their mental clarity naturally.
+  </p>
+
+  <!-- BUY BUTTON 1 -->
+  <a class="lepavs-buy-btn" href="#" target="_blank"
+     style="display:inline-block;background:#6366f1;color:#fff;padding:16px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;">
+     🛒 Buy Now – Start Today
+  </a>
+</section>
+
+
+<!-- PROBLEM SECTION -->
+<section style="padding:60px 20px;text-align:center;">
+  <h2>Are You Struggling With…</h2>
+  <ul style="list-style:none;padding:0;font-size:18px;margin-top:20px;">
+    <li>❌ Low energy & constant guilt</li>
+    <li>❌ Lack of focus & productivity</li>
+    <li>❌ Weak self-control</li>
+    <li>❌ Decreased confidence</li>
+    <li>❌ Feeling stuck in a cycle you can't break</li>
+  </ul>
+</section>
+
+
+<!-- SOLUTION SECTION -->
+<section style="background:#ffffff;padding:60px 20px;text-align:center;">
+  <h2>Here’s The Solution</h2>
+
+  <p style="max-width:750px;margin:auto;font-size:18px;margin-bottom:30px;">
+    This powerful digital guide reveals psychological techniques, habit-breaking systems, 
+    daily discipline frameworks, and mental rewiring strategies that actually work.
+    No shame. No extreme methods. Just proven steps to help you regain control.
+  </p>
+
+  <!-- BUY BUTTON 2 -->
+  <a class="lepavs-buy-btn" href="#" target="_blank"
+     style="display:inline-block;background:#009688;color:#fff;padding:16px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;">
+     🔥 Yes! I Want Freedom
+  </a>
+</section>
+
+
+<!-- WHAT YOU'LL GET -->
+<section style="padding:60px 20px;text-align:center;background:#f5f8ff;">
+  <h2>What You’ll Get Inside</h2>
+
+  <ul style="list-style:none;padding:0;font-size:18px;margin-top:20px;">
+    <li>✔️ 30-Day Recovery Blueprint</li>
+    <li>✔️ Trigger Control System</li>
+    <li>✔️ Mind Reset Exercises</li>
+    <li>✔️ Confidence & Discipline Boost Plan</li>
+    <li>✔️ Daily Focus & Productivity Routine</li>
+  </ul>
+</section>
+
+
+<!-- FINAL CTA -->
+<section style="padding:80px 20px;text-align:center;background:#003366;color:#fff;">
+  <h2>Stop Struggling In Silence</h2>
+
+  <p style="font-size:18px;margin-bottom:30px;">
+    Take control today and transform your life. 
+    The decision you make now can change your future.
+  </p>
+
+  <!-- BUY BUTTON 3 -->
+  <a class="lepavs-buy-btn" href="#" target="_blank"
+     style="display:inline-block;background:#198754;color:#fff;padding:18px 45px;border-radius:50px;text-decoration:none;font-weight:700;font-size:18px;">
+     🚀 Buy Now & Start Your Transformation
+  </a>
+</section>
+
+
+<!-- SINGLE SCRIPT FOR ALL BUTTONS -->
 <script>
-  (function() {
-    var p = new URLSearchParams(window.location.search);
-    var ref = p.get("ref") || "";
-    var pid = p.get("pid") || "1";
-    var url = "saporific-hiedi-sapientially.ngrok-free.dev/payment/page?product=" + pid + (ref ? "&ref=" + ref : "");
-    document.getElementById("lepavs-buy-btn").href = url;
-  })();
+(function() {
+  var p = new URLSearchParams(window.location.search);
+  var ref = p.get("ref") || "";
+  var pid = p.get("pid") || "1";
+
+  var url = "https://saporific-hiedi-sapientially.ngrok-free.dev/payment/page?product="
+            + pid + (ref ? "&ref=" + ref : "");
+
+  var buttons = document.querySelectorAll(".lepavs-buy-btn");
+  buttons.forEach(function(btn){
+      btn.href = url;
+  });
+})();
 </script>
+
+</body>
+</html>
