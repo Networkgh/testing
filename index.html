@@ -1,0 +1,13 @@
+<!-- This button reads ref & pid from the current page URL -->
+<a id="lepavs-buy-btn" href="#" style="display:inline-block;background:#6366f1;color:#ffffff;padding:16px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;font-family:Arial,sans-serif;" target="_blank">
+  🛒 Buy Now
+</a>
+<script>
+  (function() {
+    var p = new URLSearchParams(window.location.search);
+    var ref = p.get("ref") || "";
+    var pid = p.get("pid") || "1";
+    var url = "saporific-hiedi-sapientially.ngrok-free.dev/payment/page?product=" + pid + (ref ? "&ref=" + ref : "");
+    document.getElementById("lepavs-buy-btn").href = url;
+  })();
+</script>
