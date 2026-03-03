@@ -3,108 +3,625 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Break Free From Masturbation Addiction</title>
+<title>Break Free – Reclaim Your Power</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #f0cb6e;
+    --dark: #0b0c10;
+    --dark2: #12141a;
+    --dark3: #1a1d26;
+    --text: #e8e8ec;
+    --muted: #888899;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Raleway', sans-serif;
+    overflow-x: hidden;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+    50%       { box-shadow: 0 0 0 18px rgba(201,168,76,0); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 18px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(11,12,16,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 4px; color: var(--gold);
+  }
+  .nav-cta {
+    background: var(--gold); color: #0b0c10;
+    padding: 10px 26px; border-radius: 50px;
+    text-decoration: none; font-weight: 800; font-size: 12px;
+    letter-spacing: 1px; text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: scale(1.04); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 120px 20px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 80% at 80% 100%, rgba(60,40,120,0.18) 0%, transparent 60%),
+      linear-gradient(180deg, #0b0c10 0%, #12141a 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(201,168,76,0.4); color: var(--gold);
+    font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    padding: 7px 22px; border-radius: 50px; margin-bottom: 32px;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 9vw, 100px);
+    line-height: 0.95; letter-spacing: 2px; margin-bottom: 10px;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.7s ease 0.1s both;
+  }
+  .hero h1 .gold-text {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: clamp(16px, 2.5vw, 20px); color: #9999aa;
+    max-width: 680px; line-height: 1.75; margin-bottom: 50px;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+  .hero-btns {
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+  .btn-gold {
+    display: inline-block;
+    background: linear-gradient(135deg, #c9a84c, #f0cb6e, #c9a84c);
+    background-size: 200% auto;
+    color: #0b0c10; padding: 18px 54px; border-radius: 50px;
+    text-decoration: none; font-weight: 800; font-size: 16px;
+    animation: pulse 2.5s infinite, shimmer 3s linear infinite;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-gold:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 24px 50px rgba(201,168,76,0.35);
+  }
+  .btn-outline {
+    display: inline-block;
+    background: transparent; border: 2px solid rgba(201,168,76,0.4); color: var(--gold);
+    padding: 16px 48px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 15px;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); transform: scale(1.03); }
+  .hero-trust {
+    display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; align-items: center;
+    margin-top: 52px; font-size: 13px; color: var(--muted);
+    position: relative; z-index: 1;
+    animation: fadeUp 0.7s ease 0.4s both;
+  }
+  .hero-trust span { display: flex; align-items: center; gap: 6px; }
+
+  /* STATS */
+  .stats-bar {
+    background: var(--dark2);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    padding: 28px 20px;
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+  }
+  .stat {
+    text-align: center; padding: 10px 48px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--gold); line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+
+  /* SECTION COMMONS */
+  section { padding: 100px 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(38px, 5vw, 62px); letter-spacing: 1px; line-height: 1.05; margin-bottom: 16px;
+  }
+  .section-desc { font-family: 'Lora', serif; font-size: 17px; color: #999; line-height: 1.8; max-width: 600px; }
+
+  /* PROBLEM */
+  .problem { background: var(--dark2); }
+  .problem .container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .problem-list { list-style: none; margin-top: 40px; display: flex; flex-direction: column; gap: 14px; }
+  .problem-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px; padding: 18px 22px;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .problem-item:hover { border-color: rgba(201,168,76,0.2); background: rgba(201,168,76,0.04); }
+  .problem-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .problem-text strong { color: var(--text); display: block; font-size: 15px; margin-bottom: 3px; }
+  .problem-text span { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .problem-visual { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+  .problem-circle {
+    width: 290px; height: 290px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    border: 1px solid rgba(201,168,76,0.15);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    animation: float 4s ease-in-out infinite;
+  }
+  .problem-circle-num { font-family: 'Bebas Neue', sans-serif; font-size: 84px; color: var(--gold); line-height: 1; }
+  .problem-circle-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; line-height: 1.5; }
+
+  /* FEATURES */
+  .features { background: var(--dark); position: relative; overflow: hidden; }
+  .features::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+  .features .container { position: relative; text-align: center; }
+  .features .section-desc { margin: 0 auto 60px; max-width: 700px; }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px; margin-top: 60px;
+  }
+  .feature-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px; padding: 36px 28px; text-align: left;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .feature-card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .feature-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.2); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .feature-card:hover::after { opacity: 1; }
+  .feature-icon { font-size: 38px; margin-bottom: 18px; display: block; }
+  .feature-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* MODULES */
+  .modules { background: var(--dark3); }
+  .modules .container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .modules-list { margin-top: 40px; display: flex; flex-direction: column; }
+  .module-item {
+    display: flex; gap: 20px; padding: 22px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: padding-left 0.2s;
+  }
+  .module-item:hover { padding-left: 8px; }
+  .module-num { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: rgba(201,168,76,0.25); flex-shrink: 0; line-height: 1; min-width: 36px; }
+  .module-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .module-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .price-card {
+    background: linear-gradient(135deg, #1a1d26, #12141a);
+    border: 1px solid rgba(201,168,76,0.25); border-radius: 24px; padding: 48px 38px;
+    text-align: center; position: sticky; top: 100px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(201,168,76,0.1);
+  }
+  .price-was { font-size: 15px; color: var(--muted); text-decoration: line-through; margin-bottom: 4px; }
+  .price-now { font-family: 'Bebas Neue', sans-serif; font-size: 78px; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+  .price-note { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+  .price-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 26px 0; }
+  .price-includes { list-style: none; text-align: left; margin-bottom: 32px; display: flex; flex-direction: column; gap: 12px; }
+  .price-includes li { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .price-includes li::before {
+    content: '✓'; background: rgba(201,168,76,0.15); color: var(--gold);
+    width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0;
+  }
+  .price-footer { font-size: 12px; color: var(--muted); margin-top: 14px; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--dark2); text-align: center; }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-top: 60px; }
+  .testi-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px; padding: 32px 28px; text-align: left;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .testi-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.2); }
+  .testi-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 16px; }
+  .testi-text { font-family: 'Lora', serif; font-style: italic; font-size: 15px; color: #bbb; line-height: 1.75; margin-bottom: 24px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), #8b5a00);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 17px; color: #0b0c10; flex-shrink: 0;
+  }
+  .testi-name { font-weight: 700; font-size: 15px; }
+  .testi-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* GUARANTEE */
+  .guarantee { background: var(--dark); text-align: center; }
+  .guarantee-box {
+    max-width: 700px; margin: 0 auto;
+    background: linear-gradient(135deg, rgba(201,168,76,0.07), rgba(201,168,76,0.02));
+    border: 1px solid rgba(201,168,76,0.2); border-radius: 24px; padding: 60px 50px;
+  }
+  .guarantee-icon { font-size: 68px; margin-bottom: 24px; }
+  .guarantee h2 { font-family: 'Bebas Neue', sans-serif; font-size: 44px; letter-spacing: 1px; margin-bottom: 18px; }
+  .guarantee p { font-family: 'Lora', serif; font-size: 16px; color: #999; line-height: 1.85; }
+
+  /* FINAL CTA */
+  .final-cta { background: var(--dark2); text-align: center; position: relative; overflow: hidden; }
+  .final-cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 60%);
+  }
+  .final-cta .container { position: relative; z-index: 1; }
+  .final-cta .section-desc { margin: 20px auto 50px; max-width: 580px; }
+
+  /* FOOTER */
+  footer {
+    background: #080909;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 28px 20px; text-align: center; font-size: 13px; color: var(--muted);
+  }
+  footer a { color: var(--muted); text-decoration: none; margin: 0 12px; }
+  footer a:hover { color: var(--gold); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .problem .container, .modules .container { grid-template-columns: 1fr; gap: 50px; }
+    .stat { padding: 10px 22px; }
+    .guarantee-box { padding: 40px 24px; }
+    .price-card { padding: 36px 22px; }
+  }
+</style>
 </head>
+<body>
 
-<body style="margin:0;font-family:Arial, sans-serif;line-height:1.6;">
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Reclaim</div>
+  <a class="lepavs-buy-btn nav-cta" href="#">Get Access Now</a>
+</nav>
 
-<!-- HERO SECTION -->
-<section style="text-align:center;padding:70px 20px;background:#f5f8ff;">
-  <h1 style="font-size:36px;margin-bottom:20px;">
-    Break Free From Masturbation Addiction – Reclaim Your Focus, Confidence & Power
-  </h1>
-
-  <p style="font-size:18px;max-width:750px;margin:auto;margin-bottom:30px;">
-    Discover the proven step-by-step system that has helped men regain control, 
-    rebuild discipline, and boost their mental clarity naturally.
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <span class="hero-badge">⚡ The #1 System For Men Ready To Break Free</span>
+  <h1>Break Free.<br><span class="gold-text">Reclaim</span> Your Power.</h1>
+  <p class="hero-sub">
+    The proven step-by-step system that has helped thousands of men destroy the addiction, 
+    rebuild iron discipline, and unlock their true potential — naturally and permanently.
   </p>
-
-  <!-- BUY BUTTON 1 -->
-  <a class="lepavs-buy-btn" href="#" target="_blank"
-     style="display:inline-block;background:#6366f1;color:#fff;padding:16px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;">
-     🛒 Buy Now – Start Today
-  </a>
+  <div class="hero-btns">
+    <a class="lepavs-buy-btn btn-gold" href="#">🛒 Yes, I Want My Freedom — Buy Now</a>
+    <span style="font-size:13px;color:var(--muted);">🔒 Secure Payment &nbsp;·&nbsp; Instant Digital Access &nbsp;·&nbsp; 30-Day Guarantee</span>
+  </div>
+  <div class="hero-trust">
+    <span>⭐⭐⭐⭐⭐ 4.9/5 Rating</span>
+    <span>👥 2,400+ Men Helped</span>
+    <span>🛡️ 30-Day Money Back</span>
+    <span>⚡ Instant Access</span>
+  </div>
 </section>
 
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat reveal"><div class="stat-num">2,400+</div><div class="stat-label">Men Helped</div></div>
+  <div class="stat reveal"><div class="stat-num">30</div><div class="stat-label">Day Blueprint</div></div>
+  <div class="stat reveal"><div class="stat-num">4.9★</div><div class="stat-label">Average Rating</div></div>
+  <div class="stat reveal"><div class="stat-num">100%</div><div class="stat-label">Private &amp; Digital</div></div>
+</div>
 
-<!-- PROBLEM SECTION -->
-<section style="padding:60px 20px;text-align:center;">
-  <h2>Are You Struggling With…</h2>
-  <ul style="list-style:none;padding:0;font-size:18px;margin-top:20px;">
-    <li>❌ Low energy & constant guilt</li>
-    <li>❌ Lack of focus & productivity</li>
-    <li>❌ Weak self-control</li>
-    <li>❌ Decreased confidence</li>
-    <li>❌ Feeling stuck in a cycle you can't break</li>
-  </ul>
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div>
+      <span class="section-tag reveal">The Real Problem</span>
+      <h2 class="section-title reveal">Are You Trapped<br>In This Cycle?</h2>
+      <p class="section-desc reveal">You know it's holding you back. But willpower alone has never been enough — because you've been fighting it the wrong way.</p>
+      <ul class="problem-list">
+        <li class="problem-item reveal">
+          <span class="problem-icon">😔</span>
+          <div class="problem-text">
+            <strong>Constant Guilt &amp; Low Energy</strong>
+            <span>Waking up drained, ashamed, and unable to sustain motivation through the day.</span>
+          </div>
+        </li>
+        <li class="problem-item reveal">
+          <span class="problem-icon">🧠</span>
+          <div class="problem-text">
+            <strong>Brain Fog &amp; Lack of Focus</strong>
+            <span>Struggling to concentrate, finish tasks, or think clearly for hours afterward.</span>
+          </div>
+        </li>
+        <li class="problem-item reveal">
+          <span class="problem-icon">📉</span>
+          <div class="problem-text">
+            <strong>Crumbling Self-Confidence</strong>
+            <span>Every relapse chips away at your belief in yourself and your ability to change.</span>
+          </div>
+        </li>
+        <li class="problem-item reveal">
+          <span class="problem-icon">🔁</span>
+          <div class="problem-text">
+            <strong>The Endless Relapse Cycle</strong>
+            <span>Days of progress wiped out. Back to square one. Over and over again.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="problem-visual reveal">
+      <div class="problem-circle">
+        <div class="problem-circle-num">73%</div>
+        <div class="problem-circle-label">of men relapse<br>within 2 weeks</div>
+      </div>
+      <p style="font-size:14px;color:var(--muted);max-width:260px;line-height:1.7;">
+        Not because they're weak — but because they're using the wrong strategy. 
+        <span style="color:var(--gold);font-weight:600;">This system changes everything.</span>
+      </p>
+    </div>
+  </div>
 </section>
 
-
-<!-- SOLUTION SECTION -->
-<section style="background:#ffffff;padding:60px 20px;text-align:center;">
-  <h2>Here’s The Solution</h2>
-
-  <p style="max-width:750px;margin:auto;font-size:18px;margin-bottom:30px;">
-    This powerful digital guide reveals psychological techniques, habit-breaking systems, 
-    daily discipline frameworks, and mental rewiring strategies that actually work.
-    No shame. No extreme methods. Just proven steps to help you regain control.
-  </p>
-
-  <!-- BUY BUTTON 2 -->
-  <a class="lepavs-buy-btn" href="#" target="_blank"
-     style="display:inline-block;background:#009688;color:#fff;padding:16px 40px;border-radius:50px;text-decoration:none;font-weight:700;font-size:16px;">
-     🔥 Yes! I Want Freedom
-  </a>
+<!-- FEATURES / SOLUTION -->
+<section class="features">
+  <div class="container">
+    <span class="section-tag reveal">The Solution</span>
+    <h2 class="section-title reveal">A System Built On<br>Science &amp; Strategy</h2>
+    <p class="section-desc reveal">No shame. No judgment. No extreme methods. Just a battle-tested system built on psychology, neuroscience, and real-world discipline frameworks.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <span class="feature-icon">🧬</span>
+        <div class="feature-title">Psychological Reprogramming</div>
+        <div class="feature-desc">Identify and rewire the deep mental triggers driving the addiction at the root level — not just the surface behavior.</div>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🔥</span>
+        <div class="feature-title">Habit-Breaking System</div>
+        <div class="feature-desc">A proven loop-disruption framework that makes it physiologically harder to relapse and easier to stay on track.</div>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">⚡</span>
+        <div class="feature-title">Energy Redirection</div>
+        <div class="feature-desc">Convert the raw energy you've been wasting into fuel for ambition, fitness, creativity, and real success.</div>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🛡️</span>
+        <div class="feature-title">Relapse Defense Protocol</div>
+        <div class="feature-desc">A pre-built emergency plan for high-risk moments so you never lose weeks of progress to a single weak moment.</div>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">🎯</span>
+        <div class="feature-title">Daily Discipline Framework</div>
+        <div class="feature-desc">Structure your day so deeply that idle time — the #1 relapse trigger — becomes physically impossible.</div>
+      </div>
+      <div class="feature-card reveal">
+        <span class="feature-icon">💎</span>
+        <div class="feature-title">Confidence Rebuild Plan</div>
+        <div class="feature-desc">Systematically repair and rebuild your self-image, masculine identity, and unshakeable self-belief day by day.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<!-- WHAT YOU'LL GET -->
-<section style="padding:60px 20px;text-align:center;background:#f5f8ff;">
-  <h2>What You’ll Get Inside</h2>
-
-  <ul style="list-style:none;padding:0;font-size:18px;margin-top:20px;">
-    <li>✔️ 30-Day Recovery Blueprint</li>
-    <li>✔️ Trigger Control System</li>
-    <li>✔️ Mind Reset Exercises</li>
-    <li>✔️ Confidence & Discipline Boost Plan</li>
-    <li>✔️ Daily Focus & Productivity Routine</li>
-  </ul>
+<!-- MODULES + PRICE -->
+<section class="modules">
+  <div class="container">
+    <div>
+      <span class="section-tag reveal">Inside The Guide</span>
+      <h2 class="section-title reveal">Everything You<br>Need To Succeed</h2>
+      <p class="section-desc reveal">A complete end-to-end system. Not a motivational PDF — a real operational guide with specific exercises, frameworks, and daily plans.</p>
+      <div class="modules-list">
+        <div class="module-item reveal">
+          <span class="module-num">01</span>
+          <div>
+            <div class="module-name">30-Day Recovery Blueprint</div>
+            <div class="module-desc">A day-by-day action plan mapped to your brain's recovery timeline. Know exactly what to do each morning.</div>
+          </div>
+        </div>
+        <div class="module-item reveal">
+          <span class="module-num">02</span>
+          <div>
+            <div class="module-name">Trigger Identification &amp; Control System</div>
+            <div class="module-desc">Map your personal triggers and deploy specific countermeasures before urges ever escalate.</div>
+          </div>
+        </div>
+        <div class="module-item reveal">
+          <span class="module-num">03</span>
+          <div>
+            <div class="module-name">Mind Reset Exercises</div>
+            <div class="module-desc">Daily 5-minute mental exercises that rewire your dopamine system and reduce cravings over time.</div>
+          </div>
+        </div>
+        <div class="module-item reveal">
+          <span class="module-num">04</span>
+          <div>
+            <div class="module-name">Confidence &amp; Discipline Boost Plan</div>
+            <div class="module-desc">Weekly challenges that forge real confidence through consistent small wins that compound fast.</div>
+          </div>
+        </div>
+        <div class="module-item reveal">
+          <span class="module-num">05</span>
+          <div>
+            <div class="module-name">Daily Focus &amp; Productivity Routine</div>
+            <div class="module-desc">Structure your day so deeply that idle time — the #1 relapse trigger — disappears entirely.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="price-card">
+        <div class="price-was">Regular Price: $97</div>
+        <div class="price-now">$27</div>
+        <div class="price-note">One-time payment · Lifetime access</div>
+        <a class="lepavs-buy-btn btn-gold" href="#" style="width:100%;text-align:center;display:block;">🛒 Get Instant Access</a>
+        <div class="price-divider"></div>
+        <ul class="price-includes">
+          <li>30-Day Recovery Blueprint</li>
+          <li>Trigger Control System</li>
+          <li>Mind Reset Exercise Library</li>
+          <li>Confidence &amp; Discipline Plan</li>
+          <li>Daily Focus Routine</li>
+          <li>Relapse Defense Protocol</li>
+        </ul>
+        <a class="lepavs-buy-btn btn-outline" href="#" style="width:100%;text-align:center;display:block;margin-bottom:14px;">Yes, I Want This Now</a>
+        <div class="price-footer">🛡️ 30-Day Money-Back Guarantee · No Questions Asked</div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <span class="section-tag reveal">Real Results</span>
+    <h2 class="section-title reveal">Men Who Took Control</h2>
+    <p class="section-desc reveal" style="margin:0 auto;">Their stories. Their transformations. Your blueprint.</p>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I tried everything for 3 years. This is the first thing that gave me a concrete daily system instead of just telling me to be stronger. Week 2 was a complete turning point."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">D</div>
+          <div><div class="testi-name">David M.</div><div class="testi-meta">Clean for 90+ days · Age 26</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The trigger mapping exercise alone was worth 10x the price. I finally understood WHY I kept relapsing. Now I have a real plan and it's actually working."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">K</div>
+          <div><div class="testi-name">Kwame O.</div><div class="testi-meta">60-day streak · Age 31</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"My focus at work has doubled. My confidence is back. I feel like myself again. I wish I found this two years ago — it has genuinely changed my life."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">J</div>
+          <div><div class="testi-name">James T.</div><div class="testi-meta">120+ days clean · Age 29</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="container">
+    <div class="guarantee-box reveal">
+      <div class="guarantee-icon">🛡️</div>
+      <h2>30-Day Money-Back Guarantee</h2>
+      <p>Try the entire system for 30 days. If you don't feel more focused, more disciplined, and more in control — simply email us and you'll get a full refund. No questions. No hassle. Zero risk on your part.</p>
+    </div>
+  </div>
+</section>
 
 <!-- FINAL CTA -->
-<section style="padding:80px 20px;text-align:center;background:#003366;color:#fff;">
-  <h2>Stop Struggling In Silence</h2>
-
-  <p style="font-size:18px;margin-bottom:30px;">
-    Take control today and transform your life. 
-    The decision you make now can change your future.
-  </p>
-
-  <!-- BUY BUTTON 3 -->
-  <a class="lepavs-buy-btn" href="#" target="_blank"
-     style="display:inline-block;background:#198754;color:#fff;padding:18px 45px;border-radius:50px;text-decoration:none;font-weight:700;font-size:18px;">
-     🚀 Buy Now & Start Your Transformation
-  </a>
+<section class="final-cta">
+  <div class="container">
+    <span class="section-tag reveal">Your Time Is Now</span>
+    <h2 class="section-title reveal" style="font-size:clamp(42px,6vw,74px);">Stop Struggling.<br>Start Living.</h2>
+    <p class="section-desc reveal">Every day you wait is another day lost to the cycle. The man you're capable of being is on the other side of this decision.</p>
+    <a class="lepavs-buy-btn btn-gold reveal" href="#" style="font-size:18px;padding:22px 64px;">🚀 Buy Now &amp; Start Your Transformation</a>
+    <p class="reveal" style="margin-top:22px;font-size:13px;color:var(--muted);">
+      🔒 Secure Checkout &nbsp;·&nbsp; ⚡ Instant Digital Access &nbsp;·&nbsp; 🛡️ 30-Day Guarantee
+    </p>
+  </div>
 </section>
 
+<!-- FOOTER -->
+<footer>
+  <div style="margin-bottom:12px;">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Contact</a>
+    <a href="#">Refund Policy</a>
+  </div>
+  <p>© 2025 Reclaim. All rights reserved. This product is for educational purposes only.</p>
+</footer>
 
-<!-- SINGLE SCRIPT FOR ALL BUTTONS -->
 <script>
-(function() {
-  var p = new URLSearchParams(window.location.search);
-  var ref = p.get("ref") || "";
-  var pid = p.get("pid") || "1";
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  var url = "https://saporific-hiedi-sapientially.ngrok-free.dev/payment/page?product="
-            + pid + (ref ? "&ref=" + ref : "");
-
-  var buttons = document.querySelectorAll(".lepavs-buy-btn");
-  buttons.forEach(function(btn){
+  // Button URLs
+  (function() {
+    var p = new URLSearchParams(window.location.search);
+    var ref = p.get("ref") || "";
+    var pid = p.get("pid") || "7";
+    var url = "https://saporific-hiedi-sapientially.ngrok-free.dev/payment/page?product="
+              + pid + (ref ? "&ref=" + ref : "");
+    document.querySelectorAll(".lepavs-buy-btn").forEach(function(btn) {
       btn.href = url;
-  });
-})();
+    });
+  })();
 </script>
-
 </body>
 </html>
